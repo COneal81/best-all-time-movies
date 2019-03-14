@@ -17,14 +17,16 @@ class BestMovies::CLI
   end
   
   def menu
+    input = nil
+    while input != 'exit'
     puts "Please select a number of the movies that you would like to see;"
     puts <<-DOC
       1. All Top 100 movies.
       2. Top movies sorted by Genre
       3. Top movies sorted by Rating
       DOC
-     
-      input = gets.strip
+    
+    input = gets.strip
       
       case input
         when "1" 
