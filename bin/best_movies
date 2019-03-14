@@ -1,0 +1,5 @@
+#!/usr/binn/env ruby
+
+require './lib/best/all/time/movies/best_movies.rb'
+
+BestMovies::CLI.new.call
