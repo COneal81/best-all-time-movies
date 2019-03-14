@@ -5,6 +5,7 @@ class BestMovies::CLI
   def call 
     list_movies
     menu
+    goodbye
   end
   
   def list_movies
@@ -22,12 +23,12 @@ class BestMovies::CLI
       2. Top movies sorted by Genre
       3. Top movies sorted by Rating
       DOC
-      
-      input = gets.chomp 
+     
+      input = gets.strip
       
       case input
         when "1" 
-          puts "needs scrap all of the movies from RT"
+          list_movies
         when "2" 
           puts "Please select a Genre"
           puts "Action & Adventure"
@@ -47,6 +48,9 @@ class BestMovies::CLI
                   puts "list of all Fantasy movies from the 100 list"
                 when "Science Fiction"
                   puts "list of all Science Fiction movies from the 100 list"
+                else
+                  puts "Invalid Entry"
+                  menu
               end
         when "3" 
           puts "Please select a rating"
@@ -56,7 +60,7 @@ class BestMovies::CLI
           puts "NC-17"
           puts "R"
           
-          selection = gets.chomp
+          selection = gets.strip
           case selection
             when 'G'
               puts "Lists all of the G rated top 100 movies"
@@ -68,9 +72,15 @@ class BestMovies::CLI
               puts "Lists all of the NC-17 rated top 100 movies"
             when 'R'
               puts "Lists all of the R rated top 100 movies"
+            else
+              puts "Invalid Entry"
+              menu
             end
           end
         end
+      def goodbye
+        puts "Thank you for visiting.  Check back with us when it is time to watch your next movie!"
+      end
   
 end
 
